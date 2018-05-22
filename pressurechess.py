@@ -7,7 +7,6 @@ Considerations:
 '''
 
 
-
 class tile:
   """
   (Board) tile objects
@@ -80,30 +79,6 @@ class position:
     return self.file_to_string() + self.rank_to_string()
 
 
-
-'''
-
-+---+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+---+
-
-'''
-
-
 board_std = [
               [tile(rook(0)), tile(knig(0)), tile(bish(0)), tile(quee(0)),
                       tile(king(0)), tile(bish(0)), tile(knig(0)), tile(rook(0))],
@@ -125,15 +100,6 @@ board_std = [
 
 
 def main(argv):
-  # f = open(argv[0], 'r+')
-  
-  # currLine = f.read()
-  
-  # while currLine != "" :
-  #   # Do something with currLine
-  #   print(currLine)
-  #   # Read next line
-  #   currLine = f.read()
   field = board(board_std)
   print(field.toString())
 

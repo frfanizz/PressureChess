@@ -14,7 +14,7 @@ class tile:
   """
   (Board) tile objects
   """
-  def __init__(self, piece, hp = 5):
+  def __init__(self, piece, hp = 6):
     self.piece = piece
     self.hp = hp
   
@@ -93,6 +93,51 @@ class position:
   def toString(self):
     return self.file_to_string() + self.rank_to_string()
 
+class pawn:
+  """
+  A pawn
+  """
+  def __init__(self, side):
+    self.side = side
+  def toString(self):
+    return "p"
+
+class king:
+  """
+  A king
+  """
+  def __init__(self, side):
+    self.side = side
+  def toString(self):
+    return "K"
+
+class quee:
+  """
+  A queen
+  """
+  def __init__(self, side):
+    self.side = side
+  def toString(self):
+    return "Q"
+
+class bish:
+  """
+  A bishop
+  """
+  def __init__(self, side):
+    self.side = side
+  def toString(self):
+    return "B"
+
+class knig:
+  """
+  A knight
+  """
+  def __init__(self, side):
+    self.side = side
+  def toString(self):
+    return "N"
+
 class rook:
   """
   A rook
@@ -101,51 +146,6 @@ class rook:
     self.side = side
   def toString(self):
     return "R"
-
-class knig:
-  """
-  A rook
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "N"
-
-class bish:
-  """
-  A rook
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "B"
-
-class quee:
-  """
-  A rook
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "Q"
-
-class king:
-  """
-  A rook
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "K"
-
-class pawn:
-  """
-  A rook
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "P"
 
   # def can_move(self, new_position):
   #   if self.position != new_position:

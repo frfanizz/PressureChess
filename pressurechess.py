@@ -195,12 +195,12 @@ board_std = [
 
 
 def main(argv):
-    """
-    Main application class
+  """
+  Main application class
 
-    :param argv [str]: the terminal/command line inputs
-    :returns:
-    """
+  :param argv [str]: the terminal/command line inputs
+  :returns:
+  """
   field = board(board_std)
   print(field.toString())
 

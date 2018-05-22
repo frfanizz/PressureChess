@@ -1,11 +1,9 @@
 import sys
-
+from pieces import *
 
 '''
-
 Considerations:
   allow buring pieces
-
 '''
 
 
@@ -49,26 +47,14 @@ class board:
     retString = "\n  +---+---+---+---+---+---+---+---+\n"
     for row in range(len(self.tiles)-1, -1, -1):
       retString += str(row+1) + " "
-      for tile in range(len(self.tiles[row])-1, -1, -1):
+      for tile in range(len(self.tiles[row])):
         retString += "|" + self.tiles[row][tile].toString() + ""
       retString += "|\n  +---+---+---+---+---+---+---+---+\n"
     retString += "    a   b   c   d   e   f   g   h  \n"
     return retString
 
 
-class piece:
-  """
-  A chess piece
-  """
-  def __init__(self, side):
-    self.side = side
-  
-  def can_move():
-    pass
-  def can_take():
-    pass
-  def move_take():
-    pass
+
 
 class position:
   """
@@ -93,73 +79,7 @@ class position:
   def toString(self):
     return self.file_to_string() + self.rank_to_string()
 
-class pawn:
-  """
-  A pawn
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "p"
 
-class king:
-  """
-  A king
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "K"
-
-class quee:
-  """
-  A queen
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "Q"
-
-class bish:
-  """
-  A bishop
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "B"
-
-class knig:
-  """
-  A knight
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "N"
-
-class rook:
-  """
-  A rook
-  """
-  def __init__(self, side):
-    self.side = side
-  def toString(self):
-    return "R"
-
-  # def can_move(self, new_position):
-  #   if self.position != new_position:
-  #     if self.position.get_file() = new_position.get_file() or self.position.get_rank() = new_position.get_rank():
-  #       return True
-  #   return False
-
-  # def can_take(self, new_position):
-  #   if self.position != new_position:
-  #     if self.position.get_file() = new_position.get_file() or self.position.get_rank() = new_position.get_rank():
-  #       return True
-  #   return False
-  
-  
 
 '''
 
@@ -182,47 +102,26 @@ class rook:
 +---+---+---+---+---+---+---+---+
 
 '''
-
 
 
 board_std = [
-              [tile(rook(0), 5), tile(knig(0), 5), tile(bish(0), 5), tile(quee(0), 5),
-                      tile(king(0), 5), tile(bish(0), 5), tile(knig(0), 5), tile(rook(0), 5)],
-              [tile(pawn(0), 5), tile(pawn(0), 5), tile(pawn(0), 5), tile(pawn(0), 5),
-                      tile(pawn(0), 5), tile(pawn(0), 5), tile(pawn(0), 5), tile(pawn(0), 5)],
-              [tile(None, 5), tile(None, 5), tile(None, 5), tile(None, 5),
-                      tile(None, 5), tile(None, 5),  tile(None, 5),  tile(None, 5)],
-              [tile(None, 5), tile(None, 5), tile(None, 5), tile(None, 5),
-                      tile(None, 5), tile(None, 5),  tile(None, 5),  tile(None, 5)],
-              [tile(None, 5), tile(None, 5), tile(None, 5), tile(None, 5),
-                      tile(None, 5), tile(None, 5),  tile(None, 5),  tile(None, 5)],
-              [tile(None, 5), tile(None, 5), tile(None, 5), tile(None, 5),
-                      tile(None, 5), tile(None, 5),  tile(None, 5),  tile(None, 5)],
-              [tile(pawn(1), 5), tile(pawn(1), 5), tile(pawn(1), 5), tile(pawn(1), 5),
-                      tile(pawn(1), 5), tile(pawn(1), 5), tile(pawn(1), 5), tile(pawn(1), 5)],
-              [tile(rook(1), 5), tile(knig(1), 5), tile(bish(1), 5), tile(quee(1), 5),
-                      tile(king(1), 5), tile(bish(1), 5), tile(knig(1), 5), tile(rook(1), 5)]
+              [tile(rook(0)), tile(knig(0)), tile(bish(0)), tile(quee(0)),
+                      tile(king(0)), tile(bish(0)), tile(knig(0)), tile(rook(0))],
+              [tile(pawn(0)), tile(pawn(0)), tile(pawn(0)), tile(pawn(0)),
+                      tile(pawn(0)), tile(pawn(0)), tile(pawn(0)), tile(pawn(0))],
+              [tile(None), tile(None), tile(None), tile(None),
+                      tile(None), tile(None),  tile(None),  tile(None)],
+              [tile(None), tile(None), tile(None), tile(None),
+                      tile(None), tile(None),  tile(None),  tile(None)],
+              [tile(None), tile(None), tile(None), tile(None),
+                      tile(None), tile(None),  tile(None),  tile(None)],
+              [tile(None), tile(None), tile(None), tile(None),
+                      tile(None), tile(None),  tile(None),  tile(None)],
+              [tile(pawn(1)), tile(pawn(1)), tile(pawn(1)), tile(pawn(1)),
+                      tile(pawn(1)), tile(pawn(1)), tile(pawn(1)), tile(pawn(1))],
+              [tile(rook(1)), tile(knig(1)), tile(bish(1)), tile(quee(1)),
+                      tile(king(1)), tile(bish(1)), tile(knig(1)), tile(rook(1))]
 ]
-
-
-# board_std = [
-#               [tile(rook(0), 5), tile(rook(0), 5), tile(rook(0), 5), tile(rook(0), 5),
-#                       tile(rook(0), 5), tile(rook(0), 5), tile(rook(0), 5), tile(rook(0), 5)],
-#               [tile(pawn(0), 5), tile(pawn(0), 5), tile(pawn(0), 5), tile(pawn(0), 5),
-#                       tile(pawn(0), 5), tile(pawn(0), 5), tile(pawn(0), 5), tile(pawn(0), 5)],
-#               [tile(None, 5), tile(None, 5), tile(None, 5), tile(None, 5),
-#                       tile(None, 5), tile(None, 5),  tile(None, 5),  tile(None, 5)],
-#               [tile(None, 5), tile(None, 5), tile(None, 5), tile(None, 5),
-#                       tile(None, 5), tile(None, 5),  tile(None, 5),  tile(None, 5)],
-#               [tile(None, 5), tile(None, 5), tile(None, 5), tile(None, 5),
-#                       tile(None, 5), tile(None, 5),  tile(None, 5),  tile(None, 5)],
-#               [tile(None, 5), tile(None, 5), tile(None, 5), tile(None, 5),
-#                       tile(None, 5), tile(None, 5),  tile(None, 5),  tile(None, 5)],
-#               [tile(pawn(1), 5), tile(pawn(1), 5), tile(pawn(1), 5), tile(pawn(1), 5),
-#                       tile(pawn(1), 5), tile(pawn(1), 5), tile(pawn(1), 5), tile(pawn(1), 5)],
-#               [tile(rook(1), 5), tile(rook(1), 5), tile(rook(1), 5), tile(rook(1), 5),
-#                       tile(rook(1), 5), tile(rook(1), 5), tile(rook(1), 5), tile(rook(1), 5)]
-# ]
 
 
 def main(argv):
